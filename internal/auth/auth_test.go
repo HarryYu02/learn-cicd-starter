@@ -1,0 +1,22 @@
+package auth
+
+import (
+	"net/http"
+	"testing"
+)
+
+func TestGetAPIKeyBasic(t *testing.T) {
+	headings := http.Header{}
+	headings.Add("Authorization", "ApiKey testapikey")
+	expected := "testapikey"
+
+	apiKey, err := GetAPIKey(headings)
+	if err != nil {
+		t.Errorf("ERROR: %v", err)
+		return
+	}
+
+    if apiKey != expected {
+        t.Errorf("GetAPIKey(%v) = %s; expected %s\n", headings, apiKey, expected)
+    }
+}
