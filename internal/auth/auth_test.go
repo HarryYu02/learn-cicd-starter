@@ -16,9 +16,9 @@ func TestGetAPIKeyBasic(t *testing.T) {
 		return
 	}
 
-    if apiKey != expected {
-        t.Errorf("GetAPIKey(%v) = %s; expected %s\n", headings, apiKey, expected)
-    }
+	if apiKey != expected {
+		t.Errorf("GetAPIKey(%v) = %s; expected %s\n", headings, apiKey, expected)
+	}
 }
 
 func TestGetAPIKeyEmptyHeader(t *testing.T) {
